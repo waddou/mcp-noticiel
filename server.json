@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.waddou/mcp-noticiel",
   "title": "Noticiel",
-  "description": "Accès en lecture seule au catalogue de notices et modes d'emploi de noticiel.com. Recherche par mots-clés, marque, catégorie, contenu complet et PDF. Aucune authentification requise.",
+  "description": "Notices et modes d'emploi de noticiel.com. Recherche par mots-clés, marque, catégorie ou PDF.",
   "version": "1.1.0",
   "repository": {
     "url": "https://github.com/waddou/mcp-noticiel",
