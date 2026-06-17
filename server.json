@@ -15,9 +15,10 @@
   "categories": ["knowledge", "search", "documents"],
   "tags": ["notices", "manuels", "pdf", "electromenager", "wordpress", "cloudflare-workers", "french"],
   "transport": ["sse", "streamable-http"],
+  "url": "https://noticiel-mcp.wadie.workers.dev",
   "endpoints": {
-    "sse": "/sse",
-    "http": "/mcp"
+    "sse": "https://noticiel-mcp.wadie.workers.dev/sse",
+    "http": "https://noticiel-mcp.wadie.workers.dev/mcp"
   },
   "tools": [
     {

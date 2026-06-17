@@ -10,8 +10,8 @@
 | **Langue principale** | Français |
 | **Licence** | MIT |
 | **Repo GitHub** | https://github.com/waddou/mcp-noticiel |
-| **Endpoint SSE** | `https://noticiel-mcp.<compte>.workers.dev/sse` |
-| **Endpoint HTTP** | `https://noticiel-mcp.<compte>.workers.dev/mcp` |
+| **Endpoint SSE** | `https://noticiel-mcp.wadie.workers.dev/sse` |
+| **Endpoint HTTP** | `https://noticiel-mcp.wadie.workers.dev/mcp` |
 
 ---
 
@@ -125,7 +125,7 @@ Liste des catégories de produits (types d'appareils) couverts.
   "mcpServers": {
     "noticiel": {
       "command": "npx",
-      "args": ["mcp-remote", "https://noticiel-mcp.<compte>.workers.dev/sse"]
+      "args": ["mcp-remote", "https://noticiel-mcp.wadie.workers.dev/sse"]
     }
   }
 }
