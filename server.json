@@ -1,78 +1,22 @@
 {
-  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/servers/main/server-schema.json",
-  "name": "noticiel",
-  "displayName": "Noticiel",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.waddou/mcp-noticiel",
+  "title": "Noticiel",
+  "description": "Accès en lecture seule au catalogue de notices et modes d'emploi de noticiel.com. Recherche par mots-clés, marque, catégorie, contenu complet et PDF. Aucune authentification requise.",
   "version": "1.1.0",
-  "description": "Accès en lecture seule au catalogue de notices et modes d'emploi de noticiel.com. Recherche par mots-clés, marque, catégorie, récupération du contenu complet et du PDF.",
-  "homepage": "https://noticiel.com",
-  "repository": "https://github.com/waddou/mcp-noticiel",
-  "license": "MIT",
-  "author": {
-    "name": "Auteur Med",
-    "email": "emeliedurand78@gmail.com",
-    "url": "https://github.com/waddou"
+  "repository": {
+    "url": "https://github.com/waddou/mcp-noticiel",
+    "source": "github"
   },
-  "categories": ["knowledge", "search", "documents"],
-  "tags": ["notices", "manuels", "pdf", "electromenager", "wordpress", "cloudflare-workers", "french"],
-  "transport": ["sse", "streamable-http"],
-  "url": "https://noticiel-mcp.wadie.workers.dev",
-  "endpoints": {
-    "sse": "https://noticiel-mcp.wadie.workers.dev/sse",
-    "http": "https://noticiel-mcp.wadie.workers.dev/mcp"
-  },
-  "tools": [
+  "websiteUrl": "https://noticiel.com",
+  "remotes": [
     {
-      "name": "search_notices",
-      "description": "Recherche des notices/modes d'emploi sur Noticiel par mots-clés, marque et/ou catégorie de produit."
+      "type": "sse",
+      "url": "https://noticiel-mcp.wadie.workers.dev/sse"
     },
     {
-      "name": "get_notice",
-      "description": "Récupère le contenu complet d'une notice (texte + lien PDF) à partir de son URL ou de son slug."
-    },
-    {
-      "name": "find_pdf",
-      "description": "Trouve le lien de téléchargement du PDF d'une notice pour une marque et un modèle donnés."
-    },
-    {
-      "name": "list_marques",
-      "description": "Liste les marques référencées sur Noticiel avec le nombre de notices, triées par volume."
-    },
-    {
-      "name": "list_categories",
-      "description": "Liste les catégories de produits couvertes par Noticiel, triées par volume."
+      "type": "streamable-http",
+      "url": "https://noticiel-mcp.wadie.workers.dev/mcp"
     }
-  ],
-  "resources": [
-    {
-      "uri": "noticiel://about",
-      "name": "À propos de Noticiel (llms.txt)",
-      "mimeType": "text/markdown"
-    },
-    {
-      "uri": "noticiel://marques",
-      "name": "Marques Noticiel",
-      "mimeType": "application/json"
-    },
-    {
-      "uri": "noticiel://categories",
-      "name": "Catégories de produits Noticiel",
-      "mimeType": "application/json"
-    }
-  ],
-  "deployment": {
-    "platform": "cloudflare-workers",
-    "requiresAuth": false,
-    "secrets": [],
-    "rateLimit": {
-      "requests": 100,
-      "period": 60,
-      "unit": "seconds"
-    }
-  },
-  "dataSource": {
-    "provider": "noticiel.com",
-    "api": "WordPress REST API v2",
-    "readonly": true,
-    "language": "fr"
-  }
+  ]
 }
