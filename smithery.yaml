@@ -1,0 +1,21 @@
+name: noticiel
+displayName: Noticiel
+description: Accès en lecture seule au catalogue de notices et modes d'emploi de noticiel.com. Recherche par mots-clés, marque, catégorie, contenu complet et PDF.
+license: MIT
+homepage: https://noticiel.com
+repository: https://github.com/waddou/mcp-noticiel
+
+remote:
+  url: https://noticiel-mcp.wadie.workers.dev/sse
+  transport: sse
+
+tags:
+  - notices
+  - manuels
+  - pdf
+  - electromenager
+  - french
+  - cloudflare-workers
+  - wordpress
+
+config: {}
