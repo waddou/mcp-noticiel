@@ -157,7 +157,7 @@ export class NoticielMCP extends McpAgent {
     this.server.tool(
       "list_categories",
       "Liste les catégories de produits (types d'appareils) couvertes par Noticiel, triées par volume.",
-      { limit: z.number().int().min(1).max(200).default(100) },
+      { limit: z.number().int().min(1).max(100).default(100) },
       async ({ limit }) => {
         const terms = await wp(`/categorie_produit?per_page=${limit}&orderby=count&order=desc&_fields=name,count,link`);
         return json({ source: SOURCE, categories: (terms as any[]).map((t) => ({ nom: t.name, nb_notices: t.count, url: t.link })) });
@@ -185,7 +185,7 @@ export class NoticielMCP extends McpAgent {
 
     // Index des catégories de produits.
     this.server.resource("Catégories de produits Noticiel", "noticiel://categories", async (uri) => {
-      const terms = await wp(`/categorie_produit?per_page=200&orderby=count&order=desc&_fields=name,count,link`);
+      const terms = await wp(`/categorie_produit?per_page=100&orderby=count&order=desc&_fields=name,count,link`);
       const text = JSON.stringify(
         { source: SOURCE, categories: (terms as any[]).map((t) => ({ nom: t.name, nb_notices: t.count, url: t.link })) },
         null,
