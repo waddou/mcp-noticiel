@@ -7,11 +7,13 @@
   "observability": { "enabled": true },
   "durable_objects": {
     "bindings": [
-      { "name": "MCP_OBJECT", "class_name": "NoticielMCP" }
+      { "name": "MCP_OBJECT", "class_name": "NoticielSSE" }
     ]
   },
   "migrations": [
-    { "tag": "v1", "new_sqlite_classes": ["NoticielMCP"] }
+    { "tag": "v1", "new_sqlite_classes": ["NoticielMCP"] },
+    // v2 (06/11/2026) : purge des 3,74 GB de sessions orphelines (palier gratuit dépassé).
+    { "tag": "v2", "deleted_classes": ["NoticielMCP"], "new_sqlite_classes": ["NoticielSSE"] }
   ],
   // Phase 2 : rate-limit par IP (100 requêtes / 60 s). period n'accepte que 10 ou 60.
   "unsafe": {
