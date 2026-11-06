@@ -19,7 +19,7 @@ const SOURCE = "Noticiel";
 type RateLimit = { limit(opts: { key: string }): Promise<{ success: boolean }> };
 interface Env {
   RATE_LIMITER?: RateLimit;
-  MCP_OBJECT: DurableObjectNamespace;
+  SSE_OBJECT: DurableObjectNamespace;
 }
 
 /** Appel WP REST avec cache edge Cloudflare (TTL 1 h). */
@@ -309,7 +309,7 @@ export default {
     }
 
     if (url.pathname === "/sse" || url.pathname === "/sse/message") {
-      return NoticielSSE.serveSSE("/sse").fetch(request, env as any, ctx);
+      return NoticielSSE.serveSSE("/sse", { binding: "SSE_OBJECT" }).fetch(request, env as any, ctx);
     }
     if (url.pathname === "/mcp") {
       return handleMcp(request);

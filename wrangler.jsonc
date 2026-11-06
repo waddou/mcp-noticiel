@@ -7,12 +7,13 @@
   "observability": { "enabled": true },
   "durable_objects": {
     "bindings": [
-      { "name": "MCP_OBJECT", "class_name": "NoticielSSE" }
+      { "name": "SSE_OBJECT", "class_name": "NoticielSSE" }
     ]
   },
   "migrations": [
     { "tag": "v1", "new_sqlite_classes": ["NoticielMCP"] },
     // v2 (06/11/2026) : purge des 3,74 GB de sessions orphelines (palier gratuit dépassé).
+    // Binding renommée (MCP_OBJECT → SSE_OBJECT) : l'API refuse deleted_classes si le même nom de binding reste.
     { "tag": "v2", "deleted_classes": ["NoticielMCP"], "new_sqlite_classes": ["NoticielSSE"] }
   ],
   // Phase 2 : rate-limit par IP (100 requêtes / 60 s). period n'accepte que 10 ou 60.
